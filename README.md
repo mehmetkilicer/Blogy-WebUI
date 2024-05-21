@@ -1,7 +1,7 @@
 # -Blogy-
 Bu projede sisteme kayıt olan yazarlar, blog yazılarını paylaşabilir  ve yorum yapabilir.Yazar Panelinden yorumlarını, mesajlarını ve yazılarını yönetebilirler.
 ## Kullanılan Teknolojiler
-- Asp.Net Core 8.0
+- Asp.Net Core 6.0
 - MSSQL
 - Entity Framework Code First
 - FluentValidation

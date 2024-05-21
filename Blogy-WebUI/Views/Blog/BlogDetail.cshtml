@@ -1,0 +1,69 @@
+﻿﻿
+@{
+    Layout = null;
+}
+
+<!-- /*
+* Template Name: Blogy
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!doctype html>
+<html lang="en">
+@await Component.InvokeAsync("_BlogListHeadComponentPartial")
+<body>
+
+@*     @await Component.InvokeAsync("_BlogListNavbarComponentPartial")
+ *@
+
+    @await Component.InvokeAsync("_BlogDetailByCoverInfoComponentPartial",new {id=ViewBag.i})
+    <section class="section">
+        <div class="container">
+
+            <div class="row blog-entries element-animate">
+
+                <div class="col-md-12 col-lg-8 main-content">
+
+                    @await Component.InvokeAsync("_BlogDetailByBlogContentComponentPartial", new { id = ViewBag.i })
+                    @await Component.InvokeAsync("_BlogDetailCommentComponentPartial", new { id = ViewBag.i })
+                    @await Component.InvokeAsync("_SendCommentComponentPartial", new { id = ViewBag.i })
+
+         
+                </div>
+
+                <!-- END main-content -->
+
+                <div class="col-md-12 col-lg-4 sidebar">
+@*                     <div class="sidebar-box search-form-wrap">
+                        <form action="#" class="sidebar-search-form">
+                            <span class="bi-search"></span>
+                            <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                        </form>
+                    </div>
+ *@                    <!-- END sidebar-box -->
+                     @await Component.InvokeAsync("_BlogDetailByWriterInfoComponentPartial", new { id = ViewBag.i })
+                     <!-- END sidebar-box -->
+                   @await Component.InvokeAsync("_BlogDetailGetOtherBlogPostByWriterComponentPartial")
+                    <!-- END sidebar-box -->
+                    @await Component.InvokeAsync("_BlogDetailCategoryListComponentPartial")
+                    <!-- END sidebar-box -->
+                    @await Component.InvokeAsync("_BlogDetailTagsComponentPartial") 
+                </div>
+                <!-- END sidebar -->
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Start posts-entry -->
+    @await Component.InvokeAsync("_BlogDetailOtherPostsComponentPartial")
+    <!-- End posts-entry -->
+    @await Component.InvokeAsync("_FooterComponentPartial")
+    <!-- Preloader -->
+    @await Component.InvokeAsync("_ScriptComponentPartial")
+
+
+</body>
+</html>

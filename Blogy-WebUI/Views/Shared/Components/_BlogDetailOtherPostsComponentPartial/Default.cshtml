@@ -1,0 +1,25 @@
+﻿@model List<Blogy_WebUI.Dtos.BlogDtos.Last3BlogDto>
+
+
+<section style="margin-top: -4500px; margin-right:100px" class="section posts-entry posts-entry-sm bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-uppercase text-black">Diger Bloglar</div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="blog-entry">
+                        <a href="single.html" class="img-link">
+                            <img src="@item.CoverImageUrl" alt="Image" class="img-fluid">
+                        </a>
+                        <span class="date">@item.CreatedDate</span>
+                        <h2><a href="single.html">@item.Title</a></h2> 
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

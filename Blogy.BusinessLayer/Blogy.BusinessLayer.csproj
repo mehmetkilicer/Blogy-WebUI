@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ErrorMessages\" />
+    <Folder Include="Container\" />
+    <Folder Include="Logging\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blogy.DataAccessLayer\Blogy.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Blogy.DtoLayer\Blogy.DtoLayer.csproj" />
+    <ProjectReference Include="..\Blogy.EntityLayer\Blogy.EntityLayer.csproj" />
+  </ItemGroup>
+
+</Project>

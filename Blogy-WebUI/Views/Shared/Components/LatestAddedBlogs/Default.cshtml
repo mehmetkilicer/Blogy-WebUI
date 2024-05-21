@@ -1,0 +1,43 @@
+﻿@model List<Blogy.EntityLayer.Concrete.Article>
+
+<div class="section search-result-wrap">
+    <div class="container">
+
+        <div class="row posts-entry">
+            <div class="col-sm-6">
+                <h2 class="posts-entry-title">Son Eklenen Bloglar</h2>
+            </div>
+            <br />
+            <br /><br />
+            <div class="col-lg-8">
+
+                @foreach (var item in Model)
+                {
+                    
+                
+                <div class="blog-entry d-flex blog-entry-search-item">
+                    <a href="single.html" class="img-link me-4">
+                        <img src="@item.CoverImageUrl" alt="Image" class="img-fluid">
+                    </a>
+                    <div>
+                        <span class="date">@item.CreatedDate </span>
+                        <h2><a href="single.html">@item.Title</a></h2>
+                        <p>@(item.Description.Length > 30 ? item.Description.Substring(0, 30) + "..." : item.Description)</p>
+                        <p><a href="/Blog/BlogDetail/@item.ArticleId/" class="btn btn-sm btn-outline-primary">Devamını Oku</a></p>
+                    </div>
+                </div>
+
+                }
+                <p><a href="/Blog/BlogList/" class="btn btn-sm btn-primary">Daha Fazla Blog</a></p>
+
+            </div>
+
+            <div class="col-lg-4 sidebar">
+                @await Component.InvokeAsync("_BlogDetailGetOtherBlogPostByWriterComponentPartial")
+                @await Component.InvokeAsync("_BlogDetailCategoryListComponentPartial")
+
+
+            </div>
+        </div>
+    </div>
+</div>

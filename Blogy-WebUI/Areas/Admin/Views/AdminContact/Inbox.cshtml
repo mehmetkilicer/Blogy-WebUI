@@ -1,0 +1,56 @@
+﻿@model List<Blogy.EntityLayer.Concrete.Message>
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+    <div class="content mt-0 p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                   
+                        <div class="card-body">
+
+                            <div class="card-body p-0">
+      
+                                <table class="table align-items-center table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-uppercase text-primary text-sm font-weight-bolder ">Ad Soyad</th>
+                                            <th class="text-uppercase text-primary text-sm font-weight-bolder ">Konu</th>
+                                            <th class="text-uppercase text-primary text-sm font-weight-bolder ">Mesaj</th>
+                                            <th class="text-uppercase text-primary text-sm font-weight-bolder ">Tarih</th>
+                                            <th class="text-uppercase text-primary text-sm font-weight-bolder text-center">Sil</th>
+                                        </tr>
+                                    </thead>
+                                <tbody class="custom-class">
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="">
+                                                    <p class="text-s  mb-0">@item.Name @item.Surname</p>
+                                                </td>
+                                                <td class="">
+                                                    <span class="text-s  mb-0">@item.Subject</span>
+                                                </td>
+                                                <td class="">
+                                                    <span class=" text-s  mb-0">@item.Content</span>
+                                                </td>
+                                                <td class="">
+                                                    <span class=" text-s  mb-0">@item.DateTime.ToString("dddd, dd MMMM yyyy")</span>
+                                                </td>
+                                                <td width="100px" class="align-middle text-center">
+                                                    <a href="/Admin/Article/DeleteArticle/@item.MessageId" class="btn bg-gradient-danger ">Sil</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

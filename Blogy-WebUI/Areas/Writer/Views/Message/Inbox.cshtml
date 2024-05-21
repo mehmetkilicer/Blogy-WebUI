@@ -1,0 +1,119 @@
+﻿@model List<Blogy.EntityLayer.Concrete.Message>
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Areas/Writer/Views/WriterLayout/Index.cshtml";
+
+    int count = 0;
+}
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Size Ait Mesajlar</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Mesajlar</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Yazar Mesajları </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Mesaj Listesi</h4>
+                    <p class="card-description">
+                        Aşağıdaki tablodan size ait mesajları görüntüleyebilir, üzerlerinde işlem yapabilirsiniz.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kisi</th>
+                                    <th>İsim</th>
+                                    <th>Konu</th>
+                                    <th>Tarih</th>
+                                    <th>Sil</th>
+                                    <th>Mesajı Oku</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>@count</td>
+                                        <td class="py-1">
+                                            <img src="@item.ImageUrl" alt="image" />
+                                        </td>
+                                        <td>@item.Name @item.Surname</td>
+                                        <td>@item.Subject</td>
+                                        <td>@(((DateTime)item.DateTime).ToString("dd-MMM-yyyy"))</td>
+                                        <td><a href="/Writer/Message/DeleteMessage/@item.MessageId" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Writer/Message/MessageDetails/@item.MessageId" class="btn btn-warning">Mesaj Detayı</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <br />
+                        <a class="btn btn-success" href="/Writer/Message/SendMessage/">Yeni Mesaj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@* <div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Size Ait Mesajlar</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Mesajlar</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Yazar Mesajları </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">                                               
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Mesaj Listesi</h4>
+                    <p class="card-description">
+                        Aşağıdaki tablodan size ait mesajları görüntüleyebilir, üzerlerinde işlem yapabilirsiniz.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Gönderen</th>
+                                    <th>Konu</th>
+                                    <th>Tarih</th>
+                                    <th>Sil</th>
+                                    <th>Mesajı Oku</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.MessageId</td>
+                                        <td>@item.Name @item.Surname</td>
+                                        <td>@item.Subject</td>
+                                        <td>@item.Content</td>
+                                        <td>@item.DateTime.ToShortDateString()</td>
+                                        <td><a href="/Writer/Blog/DeleteMessage/@item.MessageId" class="btn btn-danger">Sil</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> *@
+

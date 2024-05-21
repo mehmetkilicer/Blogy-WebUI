@@ -1,0 +1,96 @@
+﻿@model ContactViewModel
+
+
+@{
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKDL_61HoLxrLkTdTM7F9PgxNg4x5pn7Kjdw&s');">
+    <div class="container">
+        <div class="row same-height justify-content-center">
+            <div class="col-md-6">
+                <div class="post-entry text-center">
+                    <h1 class="mb-4">İletişim</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info">
+
+                    <div class="address mt-2">
+                        <i class="icon-room"></i>
+                        <h4 class="">Konum:</h4>
+                        <p> İstanbul</p>
+                    </div>
+
+                    <div class="open-hours mt-4">
+                        <i class="icon-clock-o"></i>
+                        <h4 class="mb-2">Mesai Saatleri:</h4>
+                        <p>
+                            Pazartesi - Cuma:<br>
+                            08:00 - 18:00
+                        </p>
+                    </div>
+
+                    <div class="email mt-4">
+                        <i class="icon-envelope"></i>
+                        <h4 class="mb-2">Mail Adresi:</h4>
+                        <p>BloGy@gmail.com</p>
+                    </div>
+
+                    <div class="phone mt-4">
+                        <i class="icon-phone"></i>
+                        <h4 class="mb-2">Telefon:</h4>
+                        <p>0212 642 11 68</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <input type="text" asp-for="Name" class="form-control" placeholder="ad soyad">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <input type="email" asp-for="Mail" class="form-control" placeholder="mail adresi">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <input type="text" asp-for="Subject" class="form-control" placeholder="konu">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <textarea asp-for="MessageBody" cols="30" rows="7" class="form-control" placeholder="mesajınız"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <input type="submit" value="gönder" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form> 
+            </div>
+        </div>
+
+    </div>
+    <br />
+
+</div> 
+
+<script>
+    $('form').submit(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Mesaj gönderildi",
+            showConfirmButton: false,
+            timer: 1200
+        });
+        this.submit();
+    });
+</script>

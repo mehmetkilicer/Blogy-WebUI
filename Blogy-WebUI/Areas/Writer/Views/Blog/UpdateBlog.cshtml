@@ -1,0 +1,63 @@
+﻿@using Blogy_WebUI.Areas.Writer.Models
+@model UpdateArticleViewModel
+
+
+
+﻿
+@{
+    ViewData["Title"] = "UpdateBlog";
+    Layout = "~/Areas/Writer/Views/WriterLayout/Index.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="container-fluid p-2">
+            <div class="card h-100">
+                <div class="card-header p-3">
+                    <div class="row">
+                        <div class="col-md-8 d-flex align-items-center">
+                            <h6 class="mb-0 text-dark">Blog Düzenleme Ekranı</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="white_shd full margin_bottom_30">
+                            <div class="table_section padding_infor_info">
+                                <div class="table-responsive-sm m-2">
+                                    <!-- table section -->
+                                    <form method="post" action="/Writer/Blog/UpdateBlog">
+                                        <input type="hidden" asp-for="ArticleId" />
+                                        <input type="hidden" asp-for="CoverImageUrl" />
+                                        <div class="form-group p-1">
+                                            <label>Kategori</label>
+                                            @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+                                        </div>
+                                  
+                                        <div class="form-group p-1">
+                                            <label>Başlık</label>
+                                            <input type="text" class="form-control form-control-s" asp-for="Title" placeholder="Başlığı girin">
+                                        </div>
+                                
+                                        <div class="form-group p-1">
+                                            <label>Açıklama</label>
+                                            <input type="text" class="form-control form-control-s" asp-for="Description" placeholder="Açıklama girin">
+                                        </div>
+                                        <div class="form-group p-1">
+                                            <label>Blog Resmi</label>
+                                            <input type="text" class="form-control form-control-s" asp-for="CoverImageUrl">
+                                        </div>
+                                        <div class="form-group p-1">
+                                            <button type="submit" class="btn btn-primary">Blog Düzenle</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

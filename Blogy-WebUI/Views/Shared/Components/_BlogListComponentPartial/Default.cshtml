@@ -1,0 +1,36 @@
+﻿@* @model List<>
+
+<section class="section">
+    <div class="container">
+
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h2 class="posts-entry-title">Blog Listesi</h2>
+            </div>
+            <div class="col-sm-6 text-sm-end"><a href="category.html" class="read-more">Tüm Blogları Gör</a></div>
+        </div>
+
+        <div class="row">
+
+            @foreach(var item in Model)
+            {
+                <div class="col-lg-4 mb-4">
+                    <div class="post-entry-alt">
+                        <a href="/Blog/BlogDetail/@item.ArticleId" style="height:200px" class="img-link"><img src="@item.CoverImageUrl" alt="Image" class="img-fluid"></a>
+                        <div class="excerpt">
+                            <h2><a href="/Blog/BlogDetail/@item.ArticleId">@item.Title</a></h2>
+                            <div class="post-meta align-items-center text-left clearfix">
+                                <figure class="author-figure mb-0 me-3 float-start"><img src="@item.Writer.ImageUrl" alt="Image" class="img-fluid"></figure>
+                                <span class="d-inline-block mt-1">Yazar: <a href="#">@item.Writer.Name</a></span>
+                                <span>&nbsp;-&nbsp; @item.CreatedDate.ToShortDateString()</span>
+                            </div>
+
+                            <p>@item.Description.Substring(0,192)...</p>
+                            <p><a href="#" class="read-more">Devamını Okuyun...</a></p>
+                        </div>
+                    </div>
+                </div>
+            }  
+        </div>
+    </div>
+</section>  *@

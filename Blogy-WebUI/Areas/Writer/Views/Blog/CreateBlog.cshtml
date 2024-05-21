@@ -1,0 +1,46 @@
+﻿@model Blogy.EntityLayer.Concrete.Article
+
+@{
+    ViewData["Title"] = "CreateBlog";
+    Layout = "~/Areas/Writer/Views/WriterLayout/Index.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Yeni Blog Ekleme Sayfası</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Blog İşlemleri</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Yeni Blog </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Yeni Blog Ekleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki alanları eksiksiz doldurarak blog ekleme işlemini tamamlayabilirsiniz.
+                    </p>
+                    <form method="post">
+                        <label>Blog Başlığı</label>
+                        <input type="text" asp-for="Title" class="form-control" />
+                        <br />
+                        <label>Blog Kategori</label>
+                        @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.v,new {@class="form-control"})
+                        <br />
+                        <label>Blog Kapak Fotoğraf Yolu</label>
+                        <input type="text" asp-for="CoverImageUrl" class="form-control" />
+                        <br />
+                        <label>Blog Detayları</label>
+                        <textarea rows="5" class="form-control" asp-for="Description"></textarea>
+                        <br />
+                        <button class="btn btn-info">Blogu Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

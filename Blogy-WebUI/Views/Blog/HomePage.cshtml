@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+@await Component.InvokeAsync("LatestAddedBlogs")
+@* @await Component.InvokeAsync("_BlogDetailGetOtherBlogPostByWriterComponentPartial")
+@await Component.InvokeAsync("_BlogDetailCategoryListComponentPartial") *@
+
+

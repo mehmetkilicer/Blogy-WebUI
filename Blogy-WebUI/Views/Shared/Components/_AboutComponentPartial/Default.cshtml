@@ -1,0 +1,31 @@
+﻿@using Blogy.EntityLayer.Concrete
+@model List<AppUser>
+
+
+
+
+<div class="section">
+	<div class="container">
+
+		<div class="row mb-5">
+			<div class="col-lg-5 mx-auto text-center" data-aos="fade-up">
+				<h2 class="heading text-primary">Yazarlarımız</h2>
+				<p>Her bir yazarımız, blogumuza katkıda bulunarak, okuyucularımıza en iyi deneyimi sunmak için çalışmaktadır.. </p>
+			</div>
+		</div>
+
+		<div class="row">
+			@foreach (var item in Model)
+			{
+				
+
+			<div class="col-lg-4 mb-4 text-center" data-aos="fade-up" data-aos-delay="0">
+				<img src="@item.ImageUrl" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+				<h5 class="text-black">@item.Name @item.Surname</h5>
+				<p>@item.Description </p>
+			</div>
+			}
+		</div>
+
+	</div>
+</div>

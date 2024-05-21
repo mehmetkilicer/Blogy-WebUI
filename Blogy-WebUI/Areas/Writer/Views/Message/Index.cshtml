@@ -1,0 +1,69 @@
+﻿@using Blogy.EntityLayer.Concrete
+@model List<AppUser>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Writer/Views/WriterLayout/Index.cshtml";
+}
+
+
+
+
+
+
+<div class="page-header">
+    <h3 style="padding-left: 20px;" class="page-title">Yazarlar</h3>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Mesaj</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Kisilerim</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="row">
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Yazar</th>
+                                <th>İsim</th>
+                                <th>Email</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+
+                                <tr>
+                                    <td class="py-1">
+                                        <img src="@item.ImageUrl" alt="image" />
+                                    </td>
+                                    <td>@item.Name @item.Surname</td>
+                                    <td>@item.Email</td>
+                                    <td class="budget">
+                                        <a class="btn btn-success" href="/HomePage/SendMessage/">İletisime gec</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

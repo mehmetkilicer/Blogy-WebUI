@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('/blogy-1.0.0/images/hero_5.jpg');">
+	<div class="container">
+		<div class="row same-height justify-content-center">
+			<div class="col-md-6">
+				<div class="post-entry text-center">
+					<h1 class="mb-4">Hakkımızda</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section sec-halfs py-0">
+	<div class="container">
+		<div class="half-content d-lg-flex align-items-stretch">
+			<div class="img" style="background-image: url('/blogy-1.0.0/images/hero_1.jpg')" data-aos="fade-in" data-aos-delay="100">
+			</div>
+			<div class="text">
+				<h2 class="heading text-primary mb-3">Değerlerimiz</h2>
+				<p class="mb-4">
+					Güvenilirlik:
+					Okuyucularımıza her zaman doğru ve güvenilir bilgiler sunmak en büyük önceliğimizdir.<br />
+					Şeffaflık:
+					İçeriklerimizde ve iş süreçlerimizde her zaman açık ve dürüst olmayı ilke ediniriz.<br />
+					Yenilikçilik:
+					Sürekli olarak yenilikçi çözümler arar, içeriklerimizi ve hizmetlerimizi bu doğrultuda geliştiririz.<br />
+					Topluluk:
+					Okuyucularımız ve iş ortaklarımızla güçlü ve anlamlı bağlar kurmaya önem veririz.<br />
+				</p>
+			@* 	<p><a href="#" class="btn btn-outline-primary py-2">Read more</a></p> *@
+			</div>
+		</div>
+
+		<div class="half-content d-lg-flex align-items-stretch">
+			<div class="img order-md-2" style="background-image: url('/blogy-1.0.0/images/hero_2.jpg')" data-aos="fade-in">
+			</div>
+			<div class="text">
+				<h2 class="heading text-primary mb-3">
+					Tarihçemiz
+				</h2>
+				<p class="mb-4">	Blogumuz 2024 yılında, bilgi paylaşımı ve topluluk oluşturma amacıyla kuruldu. İlk başta küçük bir ekip ile başladığımız bu yolculukta, zamanla büyüyecegiz ve geniş bir okuyucu kitlesine ulasacagız. Bugün, farklı alanlarda uzman yazarlarımızla, çeşitli konularda zengin içerikler sunarak, okuyucularımıza değer katmaya devam ediyoruz.</p>
+				@* <p><a href="#" class="btn btn-outline-primary py-2">Read more</a></p> *@
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+@await Component.InvokeAsync("_AboutComponentPartial")
+
+
+
+
+
+

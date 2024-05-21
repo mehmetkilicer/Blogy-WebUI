@@ -1,0 +1,104 @@
+﻿@model List<Blogy_WebUI.Dtos.BlogDtos._GetArticleListDto>
+
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+@await Component.InvokeAsync("_BlogListHeadComponentPartial")
+<body>
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+        <div class="container">
+            <div class="menu-bg-wrap">
+                <div class="site-navigation">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                            <a href="index.html" class="logo m-0 float-start">Blogy<span class="text-primary">.</span></a>
+                        </div>
+                        <div class="col-8 text-center">
+                            <form action="#" class="search-form d-inline-block d-lg-none">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="bi-search"></span>
+                            </form>
+
+                            <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+                                <li class="active"><a href="/Blog/HomePage/">AnaSayfa</a></li>
+
+                                <li><a href="/Blog/BlogList/">Blog Listesi</a></li>
+                                <li><a href="/About/index/">Hakkımızda</a></li>
+                                <li><a href="/Blog/ContactPage/">İletisim</a></li>
+                                <li><a href="/Writer/Dashboard/index/">Panel</a></li>
+                                <li><a href="/Login/LogOut/">Cıkıs Yap</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-2 text-end">
+                            <a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+                                <span></span>
+                            </a>
+                            <form method="get" action="/Blog/BlogList" class="search-form d-none d-lg-inline-block">
+                                <input type="text" class="form-control" name="search" placeholder="Aranacak kelime..." value="@ViewBag.Search">
+                                <span class="bi-search"></span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+<section class="section">
+    <div class="container">
+
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h2 class="posts-entry-title">Blog Listesi</h2>
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+
+            @foreach(var item in Model)
+            {
+                <div class="col-lg-4 mb-4">
+                    <div class="post-entry-alt">
+                        <a href="/Blog/BlogDetail/@item.Id" style="height:150px" class="img-link"><img src="@item.ImageUrl" alt="Image" class="img-fluid"></a>
+                        <div class="excerpt">
+                            <h2><a href="/Blog/BlogDetail/@item.Id">@item.Title</a></h2>
+                            <div class="post-meta align-items-center text-left clearfix">
+                                <figure class="author-figure mb-0 me-3 float-start"><img src="@item.UserImageUrl" alt="Image" class="img-fluid"></figure>
+                                <span class="d-inline-block mt-1">Yazar: <a href="#">@item.NameSurname</a></span>
+                                <span>&nbsp;-&nbsp; @item.Date.ToShortDateString()</span>
+                            </div>
+
+                            <p>@item.Content.Substring(0,192)...</p>
+                            <p><a href="#" class="read-more">Devamını Okuyun...</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+    @await Component.InvokeAsync("_FooterComponentPartial")
+
+
+
+    @await Component.InvokeAsync("_ScriptComponentPartial")
+</body>
+</html>
